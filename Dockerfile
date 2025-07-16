@@ -23,5 +23,6 @@ RUN chmod +x /wait-for-it.sh
 # Expondo porta padrão
 EXPOSE 8080
 
+RUN apk add --no-cache bash
 # Espera o banco ficar pronto e só depois inicia a API
 ENTRYPOINT ["/wait-for-it.sh", "database:5432", "--", "java", "-jar", "app.jar"]
